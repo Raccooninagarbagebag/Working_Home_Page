@@ -1,11 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inknut antiqua, serif;
     line-height: 1.5;
 }
 
 #site_wrap {
+    position: relative;
     display: grid;
     grid-template-columns: 
         1fr 
@@ -25,8 +26,8 @@ body {
         784px
         1fr;
     grid-template-areas:
-        "box box box header header header header header"
-        "box box box blank blank blank blank blank"
+        "header header header header header header header header"
+        "blank blank blank blank blank blank blank blank"
         "banner banner banner banner banner banner banner banner"
         "motto motto motto motto motto motto motto motto"
         ". images images images scrollable scrollable scrollable ."
@@ -34,23 +35,59 @@ body {
     background-color: white;
 }
 
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20vw;
+    max-width: 350px;
+    z-index: 10;
+    pointer-events: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+.logo:hover {
+        filter: invert(1);
+}
 .header {
     background-color: #4E4B69;
     grid-area: header;
-    display: flex;
-    color: white;
+    display:flex;
+    align-items: center;
+    justify-content: right;
 }
-.box {
-    background-color: #130e3d;
-    grid-area: box;
-    color: white;
+.header .site_title {
+    outline: 1px solid red;
+}
+.header .nav {
+    display:flex;
+    align-items: center;
+    list-style: none;
+    padding: 0 ;
+}
+.header .nav a {
+    margin: 0 10px;
+    padding: 0 10px;
+    color: rgb(100, 27, 27);
+    text-decoration: none;
+    border: 2px solid transparent;
+    border-radius: 50em;
+    color:white ;
+    padding: 15px 30px;
+    margin: 0 8px;
+    font-size: 30px;
+}
+.header .nav a:hover, .header .nav .active {
+    background-color: #A4ACDF;
+    color: #4E4B69;
+    font-weight: bold;
 }
 .blank {
     background-color: white;
 }
 .banner {
-    background-color: #dc74e4;
+    background-image: url("images/Front_Page_Image.png");
     grid-area: banner;
+    background-size: cover;
 }
 .motto {
     background-color: white;
@@ -101,7 +138,7 @@ body {
             565px
             1fr;
         grid-template-areas:
-        "box header header"
+        "header header header"
         "blank blank blank"
         "banner banner banner"
         "motto motto motto"
