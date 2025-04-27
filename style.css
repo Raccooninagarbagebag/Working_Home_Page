@@ -7,25 +7,29 @@ body {
 
 #site_wrap {
     display: grid;
-    grid-template-columns: 1fr 30px 600px 30px 125px 600px 30px 1fr;
+    grid-template-columns: 1fr 30px 600px 30px 125px 600px 30px 90px;
     grid-template-rows: 42.5px 40px 122px 77.5px 400px 1fr;
     grid-template-areas:
         "header header header header header header header header"
         "blank blank blank blank blank blank blank blank"
         "banner banner banner banner banner banner banner banner"
         "motto motto motto motto motto motto motto motto"
-        "images images images images images scrollable scrollable ."
-        "images images images images images scrollable scrollable ."
+        "images images images images scrollable scrollable  . ."
+        "images images images images scrollable scrollable . ."
         "footer footer footer footer footer footer footer footer";
     background-color: white;
 }
-
+.menu-toggle {
+    display: none;
+}
+.hamburger {
+    display: none;
+}
 .logo {
     position: absolute;
     top: 0;
     left: 0;
     width: 10vw;
-    max-width: 175px;
     z-index: 10;
     transition: filter 0.3s, transform 0.3s;
 }
@@ -48,19 +52,31 @@ body {
     padding-left: clamp(3.5vw, 10vw, 150px);
 }
 .header .nav {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    padding: 0;
-}
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0; 
+    width: 100%; 
+    background-color: #170404; 
+    border-radius: 0;
+    padding: 20px 0;
+    z-index: 15;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+} 
 .header .nav a {
-    margin: 0 4px;
-    padding: 7.5px 15px;
+    font-size: 18px;
+    padding: 15px 20px; 
+    margin: 5px 0;
     color: white;
     text-decoration: none;
-    border: 1px solid transparent;
-    border-radius: 50em;
-    font-size: 15px;
+    text-align: center;
+    border-radius: 0; 
+    transition: background-color 0.3s, color 0.3s;
+}
+.header .nav a:hover {
+    background-color: #A4ACDF;
+    color: #2E2A2A;
 }
 .header .nav a:hover, .header .nav .active {
     background-color: #A4ACDF;
@@ -116,7 +132,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 700px; 
-    max-height: 700px; 
+    max-height: 700px;
 }
 .scrollable h2 {
     background-color: #6b6981;
@@ -153,15 +169,231 @@ body {
 
 @media screen and (max-width: 480px) {
     #site_wrap {
-        grid-template-columns: 50px 50px;
-        grid-template-rows: 36px 17px 86.5px 27px 310px 282.5px 1fr;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
         grid-template-areas:
-            "header header"
-            "blank blank"
-            "banner banner"
-            "motto motto"
-            "images images"
-            "scrollable scrollable"
-            "footer footer";
+            "header"
+            "blank"
+            "banner"
+            "motto"
+            "images"
+            "scrollable"
+            "footer";
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        position: relative;
+    }
+    .logo {
+        width: 40vw;
+        max-width: 150px;
+    }
+    .hamburger {
+        cursor: pointer;
+        display: block;
+        width: 30px;
+    }
+    .hamburger span {
+        display: block;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+    }
+    .nav {
+        display: none;
+        flex-direction: column;
+        background: #4E4B69;
+        padding: absolute;
+        right: 10px;
+        top: 50px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .menu-toggle:checked ~ .nav {
+        display: flex;
+    }
+    .header .site_title {
+        font-size: 18px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        padding-left: clamp(13vw, 35vw, 200px);
+        }
+        
+    .header .hamburger {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        position: relative;
+        z-index: 20;
+        cursor: pointer;
+    }
+    .header .hamburger span {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: white;
+        margin: 5px auto;
+        transition: all 0.3s;
+    }
+    .header .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+    .header .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    } 
+    .header .hamburger.active span:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+     }
+
+    .header .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 10px;
+        background-color: #4E4B69;
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 15;
+    }
+    .header .nav a {
+        font-size: 14px;
+        padding: 5px 10px;
+        margin: 2px 0;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+    .header .nav a:hover {
+        background-color: #A4ACDF;
+        color: #4E4B69;
+    }
+    .header .hamburger.active + .nav {
+        display: flex;
+    }
+    .blank {
+        height: 0;
+    }
+    .banner {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+    }
+    .header .hamburger span {
+        display: block;
+        width: 20px;
+        height: 3px;
+        background-color: white;
+        margin: 5px auto;
+        transition: all 0.3s;
+    }
+
+    .header .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .header .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .header .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .header .nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 10px;
+        background-color: #4E4B69;
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 15;
+    }
+
+    .header .nav a {
+        font-size: 14px;
+        padding: 5px 10px;
+        margin: 2px 0;
+        color: white;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .header .nav a:hover {
+        background-color: #A4ACDF;
+        color: #4E4B69;
+    }
+
+    .header .hamburger.active + .nav {
+        display: flex;
+    }
+
+    .blank {
+        height: auto;
+    }
+
+    .banner {
+        height: 150px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .motto {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+        color: #934376;
+    }
+
+    .images {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .image-1, .image-2, .image-3 {
+        flex: 0 0 auto;
+        width: 80%;
+        max-width: 250px;
+        aspect-ratio: 4/3;
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+    }
+
+    .scrollable {
+        height: 300px;
+        max-height: 300px;
+        border-width: 10px;
+        background-color: #C1C8F4;
+        overflow-y: auto;
+        padding: 10px;
+    }
+
+    .scrollable ul {
+        font-size: 18px;
+        line-height: 2.5;
+        padding: 0;
+        list-style: none;
+        text-align: center;
+    }
+
+    .scrollable li {
+        margin-bottom: 10px;
     }
 }
