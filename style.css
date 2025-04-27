@@ -1,35 +1,20 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: inknut antiqua, serif;
+    font-family: 'Inknut Antiqua', serif;
     line-height: 1.5;
 }
 
 #site_wrap {
-    position: relative;
     display: grid;
-    grid-template-columns: 
-        1fr 
-        90px 
-        500px 
-        190px 
-        200px 
-        900px
-        90px
-        1fr;
-    grid-gap: 0px;
-    grid-template-rows: 
-        85px 
-        80px 
-        244px 
-        155px 
-        800px
-        1fr;
+    grid-template-columns: 1fr 30px 600px 30px 125px 600px 30px 1fr;
+    grid-template-rows: 42.5px 40px 122px 77.5px 400px 1fr;
     grid-template-areas:
         "header header header header header header header header"
         "blank blank blank blank blank blank blank blank"
         "banner banner banner banner banner banner banner banner"
         "motto motto motto motto motto motto motto motto"
+        "images images images images images scrollable scrollable ."
         "images images images images images scrollable scrollable ."
         "footer footer footer footer footer footer footer footer";
     background-color: white;
@@ -39,60 +24,56 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 20vw;
-    max-width: 350px;
+    width: 10vw;
+    max-width: 175px;
     z-index: 10;
-    pointer-events: auto;
-    transition: filter 0.3s ease, transform 0.3s ease;
+    transition: filter 0.3s, transform 0.3s;
 }
 .logo:hover {
-        filter: invert(1);
+    filter: invert(1);
 }
+
 .header {
     background-color: #4E4B69;
     grid-area: header;
-    display:flex;
+    display: flex;
     align-items: center;
     justify-content: space-between;
 }
 .header .site_title {
-    font-size: 40px;
+    font-size: 20px;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding-left: clamp(7vw, 17vw, 300px);
+    padding-left: clamp(3.5vw, 10vw, 150px);
 }
 .header .nav {
-    display:flex;
+    display: flex;
     align-items: center;
     list-style: none;
-    padding: 0 ;
+    padding: 0;
 }
 .header .nav a {
-    margin: 0 10px;
-    padding: 0 10px;
-    color: rgb(100, 27, 27);
+    margin: 0 4px;
+    padding: 7.5px 15px;
+    color: white;
     text-decoration: none;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     border-radius: 50em;
-    color:white ;
-    padding: 15px 30px;
-    margin: 0 8px;
-    font-size: 30px;
+    font-size: 15px;
 }
 .header .nav a:hover, .header .nav .active {
     background-color: #A4ACDF;
     color: #4E4B69;
     font-weight: bold;
 }
-.blank {
-    background-color: white;
-}
+
 .banner {
     background-image: url("images/Front_Page_Image.png");
     grid-area: banner;
     background-size: cover;
 }
+
 .motto {
     background-color: white;
     grid-area: motto;
@@ -103,108 +84,84 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .images {
     background-color: white;
     grid-area: images;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    padding: 10px;
+    gap: 15px;
 }
-
-.image-1 {
-    width: 465px;
-    height: 302px;
-    background-image: url("images/Image_1.png");
-    color: white;
-    display: flex;
+.image-1, .image-2, .image-3 {
+    width: 100%;
+    max-width: 350px;
+    aspect-ratio: 3/2;
     background-size: cover;
-    
+    background-position: center;
+    border-radius: 10px;
 }
-.image-2 {
-    width: 465px;
-    height: 302px;
-    background-image: url("images/Image_2.png");
-    color: white;
-    display: flex;
-    background-size: cover;
-}
-.image-3 {
-    width: 465px;
-    height: 302px;
-    background-image: url("images/Image_3.png");
-    color: white;
-    display: flex;
-    background-size: cover;
-}
+.image-1 { background-image: url("images/Image_1.png"); }
+.image-2 { background-image: url("images/Image_2.png"); }
+.image-3 { background-image: url("images/Image_3.png"); }
 
 .scrollable {
     background-color: #C1C8F4;
     grid-area: scrollable;
     color: white;
-    padding:   0px 0px 0px 0px;
     overflow-y: auto;
-    border: 40px solid #A4ACDF;
+    border: 20px solid #A4ACDF;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 700px; 
+    max-height: 700px; 
 }
 .scrollable h2 {
-    top: 0;
-    left: 0;
-    width: 100%;
     background-color: #6b6981;
-    font-size: 50px;
-    margin-bottom: bold;
+    font-size: 18px;
+    margin: 0;
+    padding: 5px;
     color: white;
     text-align: center;
-    margin: 0;
-    z-index: 5;
     position: sticky;
     top: 0;
+    z-index: 5;
 }
 .scrollable ul {
     list-style-type: none;
     padding: 0;
-    margin: 20px;
+    margin: 10px;
     color: #2E2A2A;
-    font-size: 45px;
-    
+    font-size: 22.5px;
+    line-height: 4;
 }
-.scrollible li {
-    margin-bottom: 20px;
-    padding: 10px;
-}
-.scrollable li:last-child {
-    border-bottom: none;
+.scrollable li {
+    margin-bottom: 10px;
+    padding: 5px;
+    position: relative;
 }
 
+.divider {
+    border: none; border-top: 2px dashed;
+}
 .footer {
     background-color: white;
     grid-area: footer;
-    height: auto;
 }
 
 @media screen and (max-width: 480px) {
     #site_wrap {
-        display: grid;
-        grid-template-columns:  
-            100px
-            100px;
-        grid-gap: 0px;
-        grid-template-rows: 
-            72px 
-            34px 
-            173px 
-            54px 
-            620px
-            565px
-            1fr;
+        grid-template-columns: 50px 50px;
+        grid-template-rows: 36px 17px 86.5px 27px 310px 282.5px 1fr;
         grid-template-areas:
-        "header header header"
-        "blank blank blank"
-        "banner banner banner"
-        "motto motto motto"
-        "images images images"
-        "scrollable scrollable scrollable"
-        "footer footer footer";
-        background-color: white;
+            "header header"
+            "blank blank"
+            "banner banner"
+            "motto motto"
+            "images images"
+            "scrollable scrollable"
+            "footer footer";
     }
 }
