@@ -257,7 +257,7 @@ body {
         "blank blank blank blank blank blank"
         "banner banner banner banner banner banner"
         "page-header-gallery page-header-gallery page-header-gallery page-header-gallery page-header-gallery page-header-gallery"
-        "Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show"
+        "Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show Mc-Dougal-Art-Show"
         "footer footer footer footer footer footer";
     padding: 20px;
     gap: 20px;
@@ -276,8 +276,8 @@ body {
     text-align: center;
 }
 
-.Mac-Dougal-Art-Show {
-    grid-area: Mac-Dougal-Art-Show;
+.Mc-Dougal-Art-Show {
+    grid-area: Mc-Dougal-Art-Show;
     font-size: 20px;
     font-weight: bold;
     color: #4E4B69;
@@ -292,6 +292,7 @@ body {
     align-items: center;
     padding: 10px;
     gap: 15px;
+    justify-content: center;
 }
 .gallery-container-2 {
     background: white;
@@ -301,6 +302,17 @@ body {
     align-items: center;
     padding: 10px;
     gap: 15px;
+    justify-content: center;
+}
+.gallery-container-3 {
+    background: white;
+    grid-area: images;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
+    justify-content: center;
 }
 
 .gallery-image-1, .gallery-image-2, .gallery-image-3, .gallery-image-4 {
@@ -309,7 +321,7 @@ body {
     aspect-ratio: 3/2;
     background-size:contain;
     background-repeat: no-repeat;
-    background-color: #6b6981;
+    background-color: #A4ACDF;
     background-position: center;
     border-radius: 10px;
 }
@@ -318,3 +330,20 @@ body {
 .gallery-image-2 { background-image: url("images/Art_Show_Image_2.png"); }
 .gallery-image-3 { background-image: url("images/Art_Show_Image_3.png"); }
 .gallery-image-4 { background-image: url("images/Art_Show_Image_4.png"); }
+
+.Portrait_1, .Portrait_2, .Portrait_3, .Portrait_4, .portait_5, .portrait_6 {
+    display: flex;
+    width: 100%;
+    max-width: auto;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: #A4ACDF;
+    background-position: center;
+    border-radius: 10px;
+}
+.Portrait_1 { background-image: url("images/Portrait_1.png"); }
+.Portrait_2 { background-image: url("images/Portrait_2.png"); }
+.Portrait_3 { background-image: url("images/Portrait_3.png"); }
+.Portrait_4 { background-image: url("images/Portrait_4.png"); }
+.portait_5 { background-image: url("images/Portrait_5.png"); }
+.portrait_6 { background-image: url("images/Portrait_6.png"); }
