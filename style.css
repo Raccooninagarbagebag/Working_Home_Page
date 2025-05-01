@@ -6,7 +6,7 @@ body {
     background: white;
 }
 
-#site_wrap {
+#Home_wrap {
     display: grid;
     grid-template-columns: 1fr 30px 600px 30px 125px 600px 30px 90px;
     grid-template-rows: 42.5px 40px 122px 77.5px 400px 1fr;
@@ -60,6 +60,7 @@ body {
 .Navigationbar {
     display: flex;
     flex-direction: row;
+    list-style-type: none;
 }
 
 .Navigationbar a {
@@ -247,14 +248,17 @@ body {
 }
 
 /* Gallery page style */
-.gallery-page {
+.gallery-wrap {
     display: grid;
-    grid-template-columns:auto auto; 
-    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto auto auto auto; 
+    grid-template-rows: auto auto auto auto auto auto;
     grid-template-areas:
-        "page-header-gallery page-header-gallery"
-        "Mac-Dougal-Art-Show Mac-Dougal-Art-Show"
-        "image-grid image-grid";
+        "header header header header header header"
+        "blank blank blank blank blank blank"
+        "banner banner banner banner banner banner"
+        "page-header-gallery page-header-gallery page-header-gallery page-header-gallery page-header-gallery page-header-gallery"
+        "Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show Mac-Dougal-Art-Show"
+        "footer footer footer footer footer footer";
     padding: 20px;
     gap: 20px;
     background: white;
@@ -263,49 +267,54 @@ body {
 .page-header-gallery {
     grid-area: page-header-gallery;
     background: #f9f9f9;
-    padding: 20px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
+    font-size: 35px;
     line-height: 1.6;
     color: #333;
+    text-align: center;
 }
+
 .Mac-Dougal-Art-Show {
     grid-area: Mac-Dougal-Art-Show;
-    font-size: 60px;
+    font-size: 20px;
     font-weight: bold;
     color: #4E4B69;
     text-align: center;
     margin-bottom: 20px;
 }
-.image-grid {
-    grid-area: image-grid;
+.gallery-container-1 {
+    background: white;
+    grid-area: images;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
     gap: 15px;
-    justify-content: center;
 }
-.gallery {
-    background: #C1C8F4;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-    line-height: 1.6;
-    color: #333;
-}
-.image-grid .image {
-    width: calc(33.333% - 10px);
-    max-width: 300px;
-    aspect-ratio: 4/3;
-    background-size: cover;
-    background-position: center;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.gallery-container-2 {
+    background: white;
+    grid-area: images;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    gap: 15px;
 }
 
-.image-grid .image.image-1 { background-image: url("images/images_Art_Show_1.png"); }
-.image-grid .image.image-2 { background-image: url("images/images_Art_Show_2.png"); }
-.image-grid .image.image-3 { background-image: url("images/images_Art_Show_3.png"); }
-.image-grid .image.image-4 { background-image: url("images/Art_Show_Image_4.png"); }
+.gallery-image-1, .gallery-image-2, .gallery-image-3, .gallery-image-4 {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-color: #6b6981;
+    background-position: center;
+    border-radius: 10px;
+}
+
+.gallery-image-1 { background-image: url("images/Art_Show_Image_1.png"); }
+.gallery-image-2 { background-image: url("images/Art_Show_Image_2.png"); }
+.gallery-image-3 { background-image: url("images/Art_Show_Image_3.png"); }
+.gallery-image-4 { background-image: url("images/Art_Show_Image_4.png"); }
