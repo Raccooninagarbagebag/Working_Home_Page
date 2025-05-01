@@ -8,15 +8,15 @@ body {
 
 #Home_wrap {
     display: grid;
-    grid-template-columns: 1fr 30px 600px 30px 125px 600px 30px 90px;
+    grid-template-columns: auto 30px 600px 30px 125px 600px 30px auto;
     grid-template-rows: 42.5px 40px 122px 77.5px 400px 1fr;
     grid-template-areas:
         "header header header header header header header header"
         "blank blank blank blank blank blank blank blank"
         "banner banner banner banner banner banner banner banner"
         "motto motto motto motto motto motto motto motto"
-        "images images images images scrollable scrollable . ."
-        "images images images images scrollable scrollable . ."
+        ". images images images scrollable scrollable . ."
+        ". images images images scrollable scrollable . ."
         "footer footer footer footer footer footer footer footer";
 }
 
@@ -56,6 +56,16 @@ body {
     border-radius: 5px;
     font-weight: bold;
 }
+.site_title a {
+    color: #fff;
+    background-color: transparent;
+    text-decoration: none;
+}
+.site_title a:hover {
+    color: #2E2A2A;
+    background-color: transparent;
+    text-decoration: none;
+}
 
 .Navigationbar {
     display: flex;
@@ -87,7 +97,7 @@ body {
     background: white;
     grid-area: motto;
     color: #934376;
-    font-size: 35px;
+    font-size: clamp(20px, 5vw, 50px);
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -102,15 +112,17 @@ body {
     align-items: center;
     padding: 10px;
     gap: 15px;
+    justify-content: center;
 }
 
 .image-1, .image-2, .image-3 {
-    width: 100%;
-    max-width: 350px;
+    width:100%;
+    max-width: 100%;
     aspect-ratio: 3/2;
     background-size: cover;
     background-position: center;
     border-radius: 10px;
+    justify-content: center;
 }
 
 .image-1 { background-image: url("images/Image_1.png"); }
@@ -120,24 +132,24 @@ body {
 .scrollable {
     background: #C1C8F4;
     grid-area: scrollable;
+    margin: 0;
     color: white;
     overflow-y: auto;
     border: 20px solid #A4ACDF;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    height: 700px;
+    height: clamp(500px, 50vh, 700px);
     max-height: 700px;
 }
 
 .scrollable h2 {
     background: #6b6981;
-    font-size: 30px;
+    font-size: clamp(24px, 5vw, 30px);
     margin: 0;
     padding: 5px;
     color: white;
     text-align: center;
-    position: sticky;
     top: 0;
 }
 
@@ -153,25 +165,28 @@ body {
 .footer {
     background: white;
     grid-area: footer;
+    padding: 20px;
 }
 .menu-toggle {
     display: none;
 }
 
 @media screen and (max-width: 480px) {
-    #site_wrap {
-        grid-template-columns: 1fr;
+    #home_wrap {
+        grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto auto auto auto auto auto;
         grid-template-areas:
-            "header"
-            "blank"
-            "banner"
-            "motto"
-            "images"
-            "scrollable"
-            "footer";
+            "header header"
+            "blank blank"
+            "banner banner"
+            "motto motto"
+            "images images"
+            "scrollable scrollable"
+            "footer footer";
     }
-
+    .site_title {
+        font-size: clamp(18px, 4vw, 24px);
+    }
     .logo {
         width: 40vw;
         max-width: 150px;
@@ -228,16 +243,11 @@ body {
     }
 
     .image-1, .image-2, .image-3 {
-        width: 80%;
-        max-width: 250px;
-        aspect-ratio: 4/3;
+        max-width: 100%;
     }
 
     .scrollable {
-        height: 300px;
-        max-height: 300px;
-        border-width: 10px;
-        padding: 10px;
+        height: clamp(300px, 40vh, 500px);
     }
 
     .scrollable ul {
@@ -304,16 +314,6 @@ body {
     gap: 15px;
     justify-content: center;
 }
-.gallery-container-3 {
-    background: white;
-    grid-area: images;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px;
-    gap: 15px;
-    justify-content: center;
-}
 
 .gallery-image-1, .gallery-image-2, .gallery-image-3, .gallery-image-4 {
     width: 100%;
@@ -321,7 +321,7 @@ body {
     aspect-ratio: 3/2;
     background-size:contain;
     background-repeat: no-repeat;
-    background-color: #A4ACDF;
+    background-color: #c9ceed;
     background-position: center;
     border-radius: 10px;
 }
@@ -331,19 +331,67 @@ body {
 .gallery-image-3 { background-image: url("images/Art_Show_Image_3.png"); }
 .gallery-image-4 { background-image: url("images/Art_Show_Image_4.png"); }
 
-.Portrait_1, .Portrait_2, .Portrait_3, .Portrait_4, .portait_5, .portrait_6 {
-    display: flex;
+.Portrait_1, .Portrait_2, .Portrait_3, .Portrait_4, .Portrait_5, .Portrait_6 {
     width: 100%;
-    max-width: auto;
-    background-size:contain;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size: contain;
     background-repeat: no-repeat;
-    background-color: #A4ACDF;
+    background-color: #c9eddb;
     background-position: center;
     border-radius: 10px;
+}
+
+.gallery-container-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 15px;
+    justify-items: center;
+    align-items: center;
 }
 .Portrait_1 { background-image: url("images/Portrait_1.png"); }
 .Portrait_2 { background-image: url("images/Portrait_2.png"); }
 .Portrait_3 { background-image: url("images/Portrait_3.png"); }
 .Portrait_4 { background-image: url("images/Portrait_4.png"); }
-.portait_5 { background-image: url("images/Portrait_5.png"); }
-.portrait_6 { background-image: url("images/Portrait_6.png"); }
+.Portrait_5 { background-image: url("images/Portrait_5.png"); }
+.Portrait_6 { background-image: url("images/Portrait_6.png"); }
+@media screen and (max-width: 480px) {
+    .gallery-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
+        grid-template-areas:
+            "header"
+            "blank"
+            "banner"
+            "page-header-gallery"
+            "Mc-Dougal-Art-Show"
+            "images"
+            "footer";
+    }
+
+    .gallery-container-1, .gallery-container-2 {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .gallery-image-1, .gallery-image-2, .gallery-image-3, .gallery-image-4 {
+        width: 80%;
+        max-width: 250px;
+        aspect-ratio: 4/3;
+    }
+
+    .Portrait_1, .Portrait_2, .Portrait_3, .Portrait_4, .Portrait_5, .Portrait_6 {
+        width: 80%;
+        max-width: 300px;
+        aspect-ratio: 4/3;
+    }
+    .gallery-container-3 {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, auto);
+        gap: 15px;
+        justify-items: center;
+        align-items: center;
+    }
+}
