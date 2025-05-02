@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recipes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="site_wrap">
+    <div id="site_wrap" class="Recipes_wrap">
         <img src="images/Front_Page_Collage.png" class="logo" alt="Front Page Collage">
         
         <div class="header">
-            <div class="site_title">BASIL JUNE</div>
+            <div class="site_title">
+                <a href="index.html">BASIL JUNE</a>
+            </div>
         
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="hamburger">
@@ -20,10 +22,10 @@
                 <span></span>
             </label>
             <ul class="Navigationbar">
-                <ul><a href="#Gallery.html">Gallery</a></ul>
-                <ul><a Class="active" href="#Recipes.html">Recipes</a></ul>
-                <ul><a href="#Music.html">Music</a></ul>
-                <ul><a href="#About.html">About</a></ul>
+                <li><a href="Gallery.html">Gallery</a></li>
+                <li><a class="active" href="Recipes.html">Recipes</a></li>
+                <li><a href="Music.html">Music</a></li>
+                <li><a href="About.html">About</a></li>
             </ul>
         </div>
 
@@ -31,36 +33,85 @@
         
         <div class="banner"></div>
 
-        <div class="motto">
-           <div class="motto_text">A BLOG DEDICATED TO ALL THINGS ME</div>
+        <div class="page-header-recipes">
+            <h1>Welcome to the Recipes Page</h1>
+            <p>Here you can find my favorite recipes and cooking tips!</p>
         </div>
-        
-        <div class="images">
-            <div class="image-1"></div>
-            <div class="image-2"></div>
-            <div class="image-3"></div>
-        </div>  
-        <div class="scrollable">
-            <h2>Recent Blog Posts...</h2>
+
+        <div class="Nachos">
+            <h2>The BEST NACHOS O.A.T - 4/22/25</h2>
+            <p>Best nachos OF ALL TIME that is... </p>
+            <p> This is a recipe passed down to me from my Uncle... Enjoy!</p>
+        </div>
+        <div class="Nachos-ingredients">
+            <h3>Ingredients:</h3>
             <ul>
-                <li>On Thumbnailing</li>
-                <hr class="divider">
-                <li>March Sketchbook Tour</li>
-                <hr class="divider">
-                <li>Ultimate Cookie Recipe</li>
-                <hr class="divider">
-                <li>Ranked Alex G Songs</li>
-                <hr class="divider">
-                <li>Best Nachos O.A.T.</li>
-                <hr class="divider">
-                <li>February Sketchbook Tour</li>
+                <li>1 bag of tortilla chips</li>
+                <li>1 can of black beans</li>
+                <li>1 cup of shredded cheese</li>
+                <li>1 can of queso dip</li>
+                <li>1/2 cup of diced tomatoes</li>
+                <li>1/2 cup of diced onions</li>
             </ul>
-         </div>
-     </div>
+            <h3>Toppings:</h3>
+            <ul>
+                <li>Guacamole</li>
+                <li>Sour cream</li>
+                <li>Pickled jalapenos</li>
+            </ul>  
+        </div>
+        <div class="Nachos-instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Preheat the oven to 350°F (175°C).</li>
+                <li>Spread the tortilla chips on a baking sheet.</li>
+                <li>Top with black beans, cheese, onions, tomatoes, and queso dip.</li>
+                <li>Bake for 10-15 minutes until cheese is melted.</li>
+                <li>Top with guacamole, sour cream, and jalapenos.</li>
+                <li>Serve hot and enjoy!</li>
+            </ol>  
+        </div>
 
-        <div class="footer"></div>
+        <div class="recipes-container-1">
+            <div class="nacho-image-1"></div>
+            <div class="nacho-image-2"></div>
+        </div>
 
+        <div class="Pastries">
+            <h2>Valentines Heart Pastries - 4/19/25</h2>
+            <p>Hello Everyone! I made these pastries last valentines day with my partner and they were delish!</p>
+            <p>Try this one out with a loved one... <3</p>
+        </div>
+        <div class="Pastries-ingredients">
+            <h3>Ingredients:</h3>
+            <ul>
+                <li>1 sheet of puff pastry</li>
+                <li>1 egg (for egg wash)</li>
+                <li>1/4 cup of sugar</li>
+                <li>1/2 cup of cream cheese</li>
+                <li>Sliced strawberries</li>
+                <li>Sanding sugar (for sprinkling)</li>
+            </ul>
+        </div>
+        <div class="Pastries-instructions">
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Preheat the oven to 400°F (200°C).</li>
+                <li>Roll out the puff pastry and cut into heart shapes.</li>
+                <li>Mix cream cheese with sugar and spread on the hearts.</li>
+                <li>Add sliced strawberries on top of the cream cheese.</li>
+                <li>Top with heart shaped edges.</li>
+                <li>Brush with egg wash and sprinkle with sanding sugar.</li>
+                <li>Bake for 15-20 minutes until golden brown.</li>
+            </ol>
+        </div>
+        <div class="recipes-container-2">
+            <div class="pastry-image-1"></div>
+            <div class="pastry-image-2"></div>
+        </div>
     </div>
-
+    <div class="footer"></div>
+    <div class="footer-text">
+        <p>&copy; 2025 Basil June. All rights reserved.</p>
 </body>
 </html>
