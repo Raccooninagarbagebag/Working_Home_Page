@@ -48,7 +48,8 @@ body {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding-left: clamp(7vw, 30vw, 300px);
+    padding-left: clamp(7vw, 20vw, 300px);
+    white-space: nowrap;
 }
 .site_title:hover {
     background-color: #A4ACDF;
@@ -202,7 +203,8 @@ body {
             "footer";
     }
     .site_title {
-        font-size: clamp(18px, 4vw, 24px);
+        font-size: clamp(18px, 4vw, 20px);
+        padding-left: clamp(5vw, 30vw, 300px);
     }
     .logo {
         width: 40vw;
@@ -564,23 +566,8 @@ body {
     }
     
 }
-.music-wrap {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto; 
-    grid-template-rows: auto auto auto auto auto auto;
-    grid-template-areas:
-        "header header header header header header"
-        "blank blank blank blank blank blank"
-        "banner banner banner banner banner banner"
-        "page-header-music page-header-music page-header-music page-header-music page-header-music page-header-music"
-        "music-1 music-2 music-3 music-4 music-5 music-6"
-        "footer footer footer footer footer footer";
-    padding: 20px;
-    gap: 20px;
-    background: white;
-}
+/* Music Section*/
 .page-header-music {
-    grid-area: page-header-music;
     background: #f9f9f9;
     padding: 10px;
     border-radius: 10px;
@@ -650,24 +637,7 @@ body {
 }
 
 /* About Section*/
-#eee45c
-.about-wrap {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto auto; 
-    grid-template-rows: auto auto auto auto auto auto;
-    grid-template-areas:
-        "header header header header header header"
-        "blank blank blank blank blank blank"
-        "banner banner banner banner banner banner"
-        "page-header-about page-header-about page-header-about page-header-about page-header-about page-header-about"
-        "about-1 about-2 about-3 about-4 about-5 about-6"
-        "footer footer footer footer footer footer";
-    padding: 20px;
-    gap: 20px;
-    background: white;
-}
 .page-header-about {
-    grid-area: page-header-about;
     background: #f9f9f9;
     padding: 10px;
     border-radius: 10px;
@@ -676,4 +646,55 @@ body {
     line-height: 1.6;
     color: #333;
     text-align: center;
+}
+.greeting {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #ede35c;
+    padding: 1px;
+    color: #333;
+}
+.my-story {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4E4B69;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.me { background-image: url("./images/me.png"); }
+.me {
+    width: 100%;
+    min-width: 200px;
+    max-width: 300px;
+    aspect-ratio: 2/3;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@media screen and (max-width: 800px) {
+    .me {
+        width: 100%;
+        max-width: 200px;
+        aspect-ratio: 2/3;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .my-story {
+        flex-direction: column;
+        align-items: center;
+    }
+    .greeting {
+        font-size: 18px;
+    }
+    .page-header-about {
+        font-size: 24px;
+    } 
 }
