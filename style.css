@@ -4,19 +4,20 @@ body {
     font-family: 'Inknut Antiqua', serif;
     line-height: 1.5;
     background: white;
+    overflow-x: hidden;
 }
 
 #Home_wrap {
     display: grid;
-    grid-template-columns: auto 30px 600px 30px 125px 600px 30px auto;
-    grid-template-rows: 42.5px 40px 122px 77.5px 400px 1fr;
+    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-template-rows: 45px 40px 122px 77.5px 400px 1fr;
     grid-template-areas:
         "header header header header header header header header"
         "blank blank blank blank blank blank blank blank"
         "banner banner banner banner banner banner banner banner"
         "motto motto motto motto motto motto motto motto"
-        ". images images images scrollable scrollable . ."
-        ". images images images scrollable scrollable . ."
+        ". images images images scrollable scrollable scrollable ."
+        ". images images images scrollable scrollable scrollable ."
         "footer footer footer footer footer footer footer footer";
 }
 
@@ -42,13 +43,16 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
 }
-
 .site_title {
     font-size: 20px;
     color: white;
     text-decoration: none;
     font-weight: bold;
     padding-left: clamp(7vw, 30vw, 300px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
 .site_title:hover {
     background-color: #A4ACDF;
@@ -104,8 +108,7 @@ body {
     justify-content: center;
 }
 
-.images {
-    background: white;
+.images-container {
     grid-area: images;
     display: flex;
     flex-direction: column;
@@ -113,11 +116,20 @@ body {
     padding: 10px;
     gap: 15px;
     justify-content: center;
+    max-height: 700px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:0 20px;
+}
+.img-container img {
+    width: 100%;
+    height: auto;
 }
 
 .image-1, .image-2, .image-3 {
-    width:100%;
-    max-width: 100%;
+    height: 100%;
+    max-width: 450px;
     aspect-ratio: 3/2;
     background-size: cover;
     background-position: center;
@@ -132,7 +144,7 @@ body {
 .scrollable {
     background: #C1C8F4;
     grid-area: scrollable;
-    margin: 0;
+
     color: white;
     overflow-y: auto;
     border: 20px solid #A4ACDF;
@@ -140,13 +152,12 @@ body {
     display: flex;
     flex-direction: column;
     height: clamp(500px, 50vh, 700px);
-    max-height: 700px;
+    max-width: 500px;
 }
 
 .scrollable h2 {
     background: #6b6981;
     font-size: clamp(24px, 5vw, 30px);
-    margin: 0;
     padding: 5px;
     color: white;
     text-align: center;
@@ -170,19 +181,26 @@ body {
 .menu-toggle {
     display: none;
 }
+.footer-text {
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+    padding: 10px;
+}
 
 @media screen and (max-width: 480px) {
     #home_wrap {
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto auto auto auto auto auto auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto auto;
         grid-template-areas:
-            "header header"
-            "blank blank"
-            "banner banner"
-            "motto motto"
-            "images images"
-            "scrollable scrollable"
-            "footer footer";
+            "header"
+            "blank"
+            "banner"
+            "motto"
+            "images"
+            "images"
+            "scrollable"
+            "footer";
     }
     .site_title {
         font-size: clamp(18px, 4vw, 24px);
@@ -370,6 +388,12 @@ body {
             "footer";
     }
 
+    .page-header-gallery {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+    }
+
     .gallery-container-1, .gallery-container-2 {
         flex-wrap: nowrap;
         justify-content: center;
@@ -504,3 +528,32 @@ body {
 .nacho-image-2 { background-image: url("./images/Nachos_2.png"); }
 .pastry-image-1 { background-image: url("./images/Pastries_1.png"); }
 .pastry-image-2 { background-image: url("./images/Pastries_2.png"); }
+@media screen and (max-width: 480px) {
+    .recipes-wrap {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto auto auto auto;
+        grid-template-areas:
+            "header"
+            "blank"
+            "banner"
+            "page-header-recipes"
+            "recipe-1"
+            "recipe-2"
+            "footer";
+    }
+    .page-header-recipes {
+        font-size: 24px;
+        padding: 10px;
+        text-align: center;
+    }
+    .recipes-container-1, .recipes-container-2 {
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+    .nacho-image-1, .nacho-image-2, .pastry-image-1, .pastry-image-2 {
+        width: 80%;
+        max-width: 250px;
+        aspect-ratio: 4/3;
+    }
+    
+}
