@@ -4,12 +4,11 @@ body {
     font-family: 'Inknut Antiqua', serif;
     line-height: 1.5;
     background: white;
-    overflow-x: hidden;
 }
 
 #Home_wrap {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto auto auto;
+    grid-template-columns: repeat(8, 1fr);
     grid-template-rows: 45px 40px 122px 77.5px 400px 1fr;
     grid-template-areas:
         "header header header header header header header header"
@@ -43,16 +42,13 @@ body {
     justify-content: space-between;
     padding: 10px 20px;
 }
+
 .site_title {
     font-size: 20px;
     color: white;
     text-decoration: none;
     font-weight: bold;
     padding-left: clamp(7vw, 30vw, 300px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
 }
 .site_title:hover {
     background-color: #A4ACDF;
@@ -75,6 +71,7 @@ body {
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    
 }
 
 .Navigationbar a {
@@ -101,7 +98,7 @@ body {
     background: white;
     grid-area: motto;
     color: #934376;
-    font-size: clamp(20px, 5vw, 50px);
+    font-size: clamp(20px, 4vw, 30px);
     font-weight: bold;
     display: flex;
     align-items: center;
@@ -120,8 +117,10 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding:0 20px;
+    padding: 0 20px;
+    margin-right: 10px;
 }
+
 .img-container img {
     width: 100%;
     height: auto;
@@ -144,7 +143,6 @@ body {
 .scrollable {
     background: #C1C8F4;
     grid-area: scrollable;
-
     color: white;
     overflow-y: auto;
     border: 20px solid #A4ACDF;
@@ -153,6 +151,7 @@ body {
     flex-direction: column;
     height: clamp(500px, 50vh, 700px);
     max-width: 500px;
+    margin-left:20px;
 }
 
 .scrollable h2 {
@@ -178,17 +177,18 @@ body {
     grid-area: footer;
     padding: 20px;
 }
+
 .menu-toggle {
     display: none;
 }
+
 .footer-text {
     font-size: 12px;
     color: gray;
     text-align: center;
     padding: 10px;
 }
-
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 800px) {
     #home_wrap {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto auto auto auto auto;
@@ -197,7 +197,6 @@ body {
             "blank"
             "banner"
             "motto"
-            "images"
             "images"
             "scrollable"
             "footer";
@@ -255,9 +254,10 @@ body {
         text-align: center;
     }
 
-    .images {
-        flex-wrap: nowrap;
-        justify-content: center;
+    .images-container {
+        grid-area: images;
+        width: 100%;
+        max-width: 90%;
     }
 
     .image-1, .image-2, .image-3 {
@@ -265,6 +265,9 @@ body {
     }
 
     .scrollable {
+        grid-area: scrollable;
+       width:100%;
+        max-width: 90%;
         height: clamp(300px, 40vh, 500px);
     }
 
@@ -481,6 +484,7 @@ body {
     background-color: #e8f4ee;
     text-align: left;
     margin-bottom: 20px;
+    margin: 20px;
 }
 .Nachos-instructions {
     font-size: 20px;
@@ -489,6 +493,7 @@ body {
     background-color: #e8f4ee;
     text-align: left;
     margin-bottom: 20px;
+    margin: 20px;
 }
 .Pastries {
     font-size: 20px;
@@ -505,6 +510,7 @@ body {
     background-color: #e8f4ee;
     text-align: left;
     margin-bottom: 20px;
+    margin: 20px;
 }
 .Pastries-instructions {
     font-size: 20px;
@@ -513,6 +519,7 @@ body {
     background-color: #e8f4ee;
     text-align: left;
     margin-bottom: 20px;
+    margin: 20px;
 }
 .nacho-image-1, .nacho-image-2, .pastry-image-1, .pastry-image-2 {
     width: 100%;
@@ -556,4 +563,117 @@ body {
         aspect-ratio: 4/3;
     }
     
+}
+.music-wrap {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto; 
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:
+        "header header header header header header"
+        "blank blank blank blank blank blank"
+        "banner banner banner banner banner banner"
+        "page-header-music page-header-music page-header-music page-header-music page-header-music page-header-music"
+        "music-1 music-2 music-3 music-4 music-5 music-6"
+        "footer footer footer footer footer footer";
+    padding: 20px;
+    gap: 20px;
+    background: white;
+}
+.page-header-music {
+    grid-area: page-header-music;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
+}
+.spotify-image { background-image: url("./images/Spotify.png")
+}
+.spotify-image {
+    width: 100%;
+    max-width: 450px;
+    aspect-ratio: 3/2;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #e8eff4;
+    background-position: center;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto;
+}
+.spotify-image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+.spotify {
+    font-size: 20px;
+    font-weight: bold;
+    color: #934376;
+    text-align: center;
+}
+.Alex-G {
+    font-size: 20px;
+    font-weight: bold;
+    color: #e8eff4;
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #505f95;
+}
+.albums {
+    font-size: 20px;
+    font-weight: bold;
+    color: #505f95;
+    background-color: #e8eff4;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+.romanian {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f3e9f2;
+    background-color: #934376;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.romanian-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #934376;
+    background-color: #f3e9f2;
+    text-align: left;
+    margin-bottom: 20px;
+    margin: 20px;
+}
+
+/* About Section*/
+#eee45c
+.about-wrap {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto; 
+    grid-template-rows: auto auto auto auto auto auto;
+    grid-template-areas:
+        "header header header header header header"
+        "blank blank blank blank blank blank"
+        "banner banner banner banner banner banner"
+        "page-header-about page-header-about page-header-about page-header-about page-header-about page-header-about"
+        "about-1 about-2 about-3 about-4 about-5 about-6"
+        "footer footer footer footer footer footer";
+    padding: 20px;
+    gap: 20px;
+    background: white;
+}
+.page-header-about {
+    grid-area: page-header-about;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 35px;
+    line-height: 1.6;
+    color: #333;
+    text-align: center;
 }
